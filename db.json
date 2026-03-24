@@ -1,0 +1,13 @@
+{
+  "products": [
+    {
+      "name": "LED TV",
+      "price": 22000
+    },
+    {
+      "name": "Jeans",
+      "price": 1200
+    }
+  ],
+  "orders": []
+}
