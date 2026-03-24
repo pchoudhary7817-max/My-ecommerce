@@ -1,9 +1,7 @@
 const express = require('express');
 const fs = require('fs');
-
 const app = express();
 
-// Middleware
 app.use(express.json());
 app.use(express.static('public'));
 
@@ -29,9 +27,5 @@ app.post('/order', (req, res) => {
   res.json({ message: "Order Placed" });
 });
 
-// IMPORTANT: Render ke liye correct port
 const PORT = process.env.PORT || 3000;
-
-app.listen(PORT, () => {
-  console.log("Server running on port " + PORT);
-});
+app.listen(PORT, () => console.log("Server running on port " + PORT));
