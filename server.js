@@ -1,9 +1,17 @@
+
 const express = require('express');
 const fs = require('fs');
+const path = require('path');
+
 const app = express();
 
 app.use(express.json());
-app.use(express.static('public'));
+app.use(express.static(__dirname)); // index.html serve karega
+
+// Home page (index.html open hoga)
+app.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname, 'index.html'));
+});
 
 // Get products
 app.get('/products', (req, res) => {
@@ -28,7 +36,4 @@ app.post('/order', (req, res) => {
 });
 
 const PORT = process.env.PORT || 3000;
-app.get('/', (req, res) => {
-  res.send('Server is running 🚀');
-});
 app.listen(PORT, () => console.log("Server running on port " + PORT));
